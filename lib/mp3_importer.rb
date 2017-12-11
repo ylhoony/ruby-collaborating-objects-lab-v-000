@@ -15,10 +15,11 @@ class MP3Importer
 
   def import
     self.files.each do |file|
-      file_arr = file.gsub(".mp3", "").split(" - ")
-      artist = Artist.find_or_create_by_name(file_arr[0].to_s)
-      song = Song.new(file_arr[1].to_s)
-      artist.add_song(song)
+      Song.new_by_filename(file)
+      # file_arr = file.gsub(".mp3", "").split(" - ")
+      # artist = Artist.find_or_create_by_name(file_arr[0].to_s)
+      # song = Song.new(file_arr[1].to_s)
+      # artist.add_song(song)
     end
   end
 
